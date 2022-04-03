@@ -1,0 +1,303 @@
+{
+  "version": "16.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "SharedResources.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "SharedResources.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "SharedResources": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://645571371616/eu-west-1",
+      "properties": {
+        "templateFile": "SharedResources.template.json",
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::645571371616:role/cdk-hnb659fds-deploy-role-645571371616-eu-west-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::645571371616:role/cdk-hnb659fds-cfn-exec-role-645571371616-eu-west-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-645571371616-eu-west-1/c7dfcf838eceff97a047b1288cd920c4ffa8f404596905068affadbf7384f766.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "SharedResources.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::645571371616:role/cdk-hnb659fds-lookup-role-645571371616-eu-west-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "SharedResources.assets"
+      ],
+      "metadata": {
+        "/SharedResources/Vpc/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Vpc8378EB38"
+          }
+        ],
+        "/SharedResources/Vpc/PublicSubnet1/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VpcPublicSubnet1Subnet5C2D37C4"
+          }
+        ],
+        "/SharedResources/Vpc/PublicSubnet1/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VpcPublicSubnet1RouteTable6C95E38E"
+          }
+        ],
+        "/SharedResources/Vpc/PublicSubnet1/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VpcPublicSubnet1RouteTableAssociation97140677"
+          }
+        ],
+        "/SharedResources/Vpc/PublicSubnet1/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VpcPublicSubnet1DefaultRoute3DA9E72A"
+          }
+        ],
+        "/SharedResources/Vpc/PublicSubnet1/EIP": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VpcPublicSubnet1EIPD7E02669"
+          }
+        ],
+        "/SharedResources/Vpc/PublicSubnet1/NATGateway": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VpcPublicSubnet1NATGateway4D7517AA"
+          }
+        ],
+        "/SharedResources/Vpc/PublicSubnet2/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VpcPublicSubnet2Subnet691E08A3"
+          }
+        ],
+        "/SharedResources/Vpc/PublicSubnet2/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VpcPublicSubnet2RouteTable94F7E489"
+          }
+        ],
+        "/SharedResources/Vpc/PublicSubnet2/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VpcPublicSubnet2RouteTableAssociationDD5762D8"
+          }
+        ],
+        "/SharedResources/Vpc/PublicSubnet2/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VpcPublicSubnet2DefaultRoute97F91067"
+          }
+        ],
+        "/SharedResources/Vpc/PublicSubnet2/EIP": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VpcPublicSubnet2EIP3C605A87"
+          }
+        ],
+        "/SharedResources/Vpc/PublicSubnet2/NATGateway": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VpcPublicSubnet2NATGateway9182C01D"
+          }
+        ],
+        "/SharedResources/Vpc/PrivateSubnet1/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VpcPrivateSubnet1Subnet536B997A"
+          }
+        ],
+        "/SharedResources/Vpc/PrivateSubnet1/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VpcPrivateSubnet1RouteTableB2C5B500"
+          }
+        ],
+        "/SharedResources/Vpc/PrivateSubnet1/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VpcPrivateSubnet1RouteTableAssociation70C59FA6"
+          }
+        ],
+        "/SharedResources/Vpc/PrivateSubnet1/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VpcPrivateSubnet1DefaultRouteBE02A9ED"
+          }
+        ],
+        "/SharedResources/Vpc/PrivateSubnet2/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VpcPrivateSubnet2Subnet3788AAA1"
+          }
+        ],
+        "/SharedResources/Vpc/PrivateSubnet2/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VpcPrivateSubnet2RouteTableA678073B"
+          }
+        ],
+        "/SharedResources/Vpc/PrivateSubnet2/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VpcPrivateSubnet2RouteTableAssociationA89CAD56"
+          }
+        ],
+        "/SharedResources/Vpc/PrivateSubnet2/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VpcPrivateSubnet2DefaultRoute060D2087"
+          }
+        ],
+        "/SharedResources/Vpc/IGW": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VpcIGWD7BA715C"
+          }
+        ],
+        "/SharedResources/Vpc/VPCGW": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VpcVPCGWBF912B6E"
+          }
+        ],
+        "/SharedResources/TargetGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TargetGroup3D7CD9B8"
+          }
+        ],
+        "/SharedResources/LB/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LB8A12904C"
+          }
+        ],
+        "/SharedResources/LB/SecurityGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LBSecurityGroup8A41EA2B"
+          }
+        ],
+        "/SharedResources/LB/SecurityGroup/to SharedResourcesServiceSecurityGroup0A87F7C3:80": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LBSecurityGrouptoSharedResourcesServiceSecurityGroup0A87F7C38003E085B9"
+          }
+        ],
+        "/SharedResources/LB/Listener": [
+          {
+            "type": "aws:cdk:warning",
+            "data": "A default Action already existed on this Listener and was replaced. Configure exactly one default Action.",
+            "trace": [
+              "Annotations.addMessage (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/jsii-kernel-nqhXGd/node_modules/aws-cdk-lib/core/lib/annotations.js:1:1213)",
+              "Annotations.addWarning (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/jsii-kernel-nqhXGd/node_modules/aws-cdk-lib/core/lib/annotations.js:1:600)",
+              "ApplicationListener._setDefaultAction (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/jsii-kernel-nqhXGd/node_modules/aws-cdk-lib/aws-elasticloadbalancingv2/lib/shared/base-listener.js:1:2143)",
+              "ApplicationListener.setDefaultAction (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/jsii-kernel-nqhXGd/node_modules/aws-cdk-lib/aws-elasticloadbalancingv2/lib/alb/application-listener.js:1:7426)",
+              "ApplicationListener.addTargetGroups (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/jsii-kernel-nqhXGd/node_modules/aws-cdk-lib/aws-elasticloadbalancingv2/lib/alb/application-listener.js:1:4626)",
+              "ApplicationListener.addTargets (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/jsii-kernel-nqhXGd/node_modules/aws-cdk-lib/aws-elasticloadbalancingv2/lib/alb/application-listener.js:1:5178)",
+              "/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/tmpiqngr6v3/lib/program.js:8228:134",
+              "Kernel._wrapSandboxCode (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/tmpiqngr6v3/lib/program.js:8840:24)",
+              "/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/tmpiqngr6v3/lib/program.js:8228:107",
+              "Kernel._ensureSync (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/tmpiqngr6v3/lib/program.js:8821:28)",
+              "Kernel.invoke (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/tmpiqngr6v3/lib/program.js:8228:34)",
+              "KernelHost.processRequest (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/tmpiqngr6v3/lib/program.js:9761:36)",
+              "KernelHost.run (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/tmpiqngr6v3/lib/program.js:9724:22)",
+              "Immediate._onImmediate (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/tmpiqngr6v3/lib/program.js:9725:46)",
+              "processImmediate (internal/timers.js:439:21)"
+            ]
+          }
+        ],
+        "/SharedResources/LB/Listener/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LBListener49E825B4"
+          }
+        ],
+        "/SharedResources/LB/Listener/app_targetGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LBListenerapptargetGroup5B3CA30A"
+          }
+        ],
+        "/SharedResources/EcsCluster/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EcsCluster97242B84"
+          }
+        ],
+        "/SharedResources/TaskDef/TaskRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TaskDefTaskRole1EDB4A67"
+          }
+        ],
+        "/SharedResources/TaskDef/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TaskDef54694570"
+          }
+        ],
+        "/SharedResources/Service/Service": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ServiceD69D759B"
+          }
+        ],
+        "/SharedResources/Service/SecurityGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ServiceSecurityGroupC96ED6A7"
+          }
+        ],
+        "/SharedResources/Service/SecurityGroup/from SharedResourcesLBSecurityGroup807A309E:80": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ServiceSecurityGroupfromSharedResourcesLBSecurityGroup807A309E80783BE52E"
+          }
+        ],
+        "/SharedResources/my_app_listener_rule/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "myapplistenerruleFABDF610"
+          }
+        ],
+        "/SharedResources/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/SharedResources/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/SharedResources/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "SharedResources"
+    }
+  }
+}

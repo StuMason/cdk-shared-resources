@@ -1,0 +1,14 @@
+{
+  "acknowledged-issue-numbers": [
+    19179
+  ],
+  "availability-zones:account=645571371616:region=eu-west-1": [
+    "eu-west-1a",
+    "eu-west-1b",
+    "eu-west-1c"
+  ],
+  "hosted-zone:account=645571371616:domainName=stuartmason.co.uk:region=eu-west-1": {
+    "Id": "/hostedzone/Z063469514DB4MIV8JGPO",
+    "Name": "stuartmason.co.uk."
+  }
+}
