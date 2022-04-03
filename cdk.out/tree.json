@@ -9,21 +9,13 @@
         "path": "Tree",
         "constructInfo": {
           "fqn": "constructs.Construct",
-          "version": "10.0.103"
+          "version": "10.0.104"
         }
       },
       "SharedResources": {
         "id": "SharedResources",
         "path": "SharedResources",
         "children": {
-          "stuartmason_co_uk": {
-            "id": "stuartmason_co_uk",
-            "path": "SharedResources/stuartmason_co_uk",
-            "constructInfo": {
-              "fqn": "aws-cdk-lib.Resource",
-              "version": "2.14.0"
-            }
-          },
           "Vpc": {
             "id": "Vpc",
             "path": "SharedResources/Vpc",
@@ -1146,6 +1138,14 @@
               "version": "2.14.0"
             }
           },
+          "zone": {
+            "id": "zone",
+            "path": "SharedResources/zone",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.Resource",
+              "version": "2.14.0"
+            }
+          },
           "CDKMetadata": {
             "id": "CDKMetadata",
             "path": "SharedResources/CDKMetadata",
@@ -1161,7 +1161,7 @@
             },
             "constructInfo": {
               "fqn": "constructs.Construct",
-              "version": "10.0.103"
+              "version": "10.0.104"
             }
           }
         },

@@ -12,14 +12,8 @@ class SharedResources(Stack):
     def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
 
-        self.perform_lookups()
         self.build_shared_services()
         self.build_example_service()
-
-    def perform_lookups(self) -> None:
-        self.hosted_zone = route53.HostedZone.from_lookup(self, "stuartmason_co_uk",
-            domain_name="stuartmason.co.uk"
-        )
 
     def build_shared_services(self) -> None:
         self.vpc = ec2.Vpc(self, "Vpc", max_azs=2, 
@@ -76,8 +70,12 @@ class SharedResources(Stack):
             target_groups=[target_group],
         )
 
+        zone = route53.HostedZone.from_lookup(self, "zone",
+            domain_name="recode.zone"
+        )
+
         route53.ARecord(self, "app_record_set",
             target=self.lb.load_balancer_dns_name,
-            zone=self.hosted_zone,
-            record_name="test-cdk.stuartmason.co.uk"
+            zone=zone,
+            record_name="test-cdk.recode.zone"
         )
