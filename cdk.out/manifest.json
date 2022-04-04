@@ -23,7 +23,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::645571371616:role/cdk-hnb659fds-deploy-role-645571371616-eu-west-1",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::645571371616:role/cdk-hnb659fds-cfn-exec-role-645571371616-eu-west-1",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-645571371616-eu-west-1/48ffd9631686a599f3de7de9dad1f2be8033a91248801e099e15c99292e1b04e.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-645571371616-eu-west-1/0ea4b3da73f256746e27f1a10f2365a6b8e987bd1342b887bb57b9175f3cf07e.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -195,31 +195,25 @@
             "data": "LBSecurityGroup8A41EA2B"
           }
         ],
-        "/SharedResources/LB/SecurityGroup/to SharedResourcesServiceSecurityGroup0A87F7C3:80": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "LBSecurityGrouptoSharedResourcesServiceSecurityGroup0A87F7C38003E085B9"
-          }
-        ],
         "/SharedResources/LB/Listener": [
           {
             "type": "aws:cdk:warning",
             "data": "A default Action already existed on this Listener and was replaced. Configure exactly one default Action.",
             "trace": [
-              "Annotations.addMessage (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/jsii-kernel-6vfxKt/node_modules/aws-cdk-lib/core/lib/annotations.js:1:1213)",
-              "Annotations.addWarning (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/jsii-kernel-6vfxKt/node_modules/aws-cdk-lib/core/lib/annotations.js:1:600)",
-              "ApplicationListener._setDefaultAction (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/jsii-kernel-6vfxKt/node_modules/aws-cdk-lib/aws-elasticloadbalancingv2/lib/shared/base-listener.js:1:2143)",
-              "ApplicationListener.setDefaultAction (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/jsii-kernel-6vfxKt/node_modules/aws-cdk-lib/aws-elasticloadbalancingv2/lib/alb/application-listener.js:1:7426)",
-              "ApplicationListener.addTargetGroups (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/jsii-kernel-6vfxKt/node_modules/aws-cdk-lib/aws-elasticloadbalancingv2/lib/alb/application-listener.js:1:4626)",
-              "ApplicationListener.addTargets (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/jsii-kernel-6vfxKt/node_modules/aws-cdk-lib/aws-elasticloadbalancingv2/lib/alb/application-listener.js:1:5178)",
-              "/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/tmpokzispfl/lib/program.js:8228:134",
-              "Kernel._wrapSandboxCode (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/tmpokzispfl/lib/program.js:8840:24)",
-              "/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/tmpokzispfl/lib/program.js:8228:107",
-              "Kernel._ensureSync (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/tmpokzispfl/lib/program.js:8821:28)",
-              "Kernel.invoke (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/tmpokzispfl/lib/program.js:8228:34)",
-              "KernelHost.processRequest (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/tmpokzispfl/lib/program.js:9761:36)",
-              "KernelHost.run (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/tmpokzispfl/lib/program.js:9724:22)",
-              "Immediate._onImmediate (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/tmpokzispfl/lib/program.js:9725:46)",
+              "Annotations.addMessage (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/jsii-kernel-aLxOFb/node_modules/aws-cdk-lib/core/lib/annotations.js:1:1213)",
+              "Annotations.addWarning (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/jsii-kernel-aLxOFb/node_modules/aws-cdk-lib/core/lib/annotations.js:1:600)",
+              "ApplicationListener._setDefaultAction (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/jsii-kernel-aLxOFb/node_modules/aws-cdk-lib/aws-elasticloadbalancingv2/lib/shared/base-listener.js:1:2143)",
+              "ApplicationListener.setDefaultAction (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/jsii-kernel-aLxOFb/node_modules/aws-cdk-lib/aws-elasticloadbalancingv2/lib/alb/application-listener.js:1:7426)",
+              "ApplicationListener.addTargetGroups (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/jsii-kernel-aLxOFb/node_modules/aws-cdk-lib/aws-elasticloadbalancingv2/lib/alb/application-listener.js:1:4626)",
+              "ApplicationListener.addTargets (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/jsii-kernel-aLxOFb/node_modules/aws-cdk-lib/aws-elasticloadbalancingv2/lib/alb/application-listener.js:1:5178)",
+              "/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/tmpc95utyex/lib/program.js:8228:134",
+              "Kernel._wrapSandboxCode (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/tmpc95utyex/lib/program.js:8840:24)",
+              "/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/tmpc95utyex/lib/program.js:8228:107",
+              "Kernel._ensureSync (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/tmpc95utyex/lib/program.js:8821:28)",
+              "Kernel.invoke (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/tmpc95utyex/lib/program.js:8228:34)",
+              "KernelHost.processRequest (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/tmpc95utyex/lib/program.js:9761:36)",
+              "KernelHost.run (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/tmpc95utyex/lib/program.js:9724:22)",
+              "Immediate._onImmediate (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/tmpc95utyex/lib/program.js:9725:46)",
               "processImmediate (node:internal/timers:464:21)"
             ]
           }
@@ -230,10 +224,10 @@
             "data": "LBListener49E825B4"
           }
         ],
-        "/SharedResources/LB/Listener/app_targetGroup/Resource": [
+        "/SharedResources/LB/Listener/test-cdk_app_targetGroup/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "LBListenerapptargetGroup5B3CA30A"
+            "data": "LBListenertestcdkapptargetGroup18BD0DB9"
           }
         ],
         "/SharedResources/EcsCluster/Resource": [
@@ -242,52 +236,64 @@
             "data": "EcsCluster97242B84"
           }
         ],
-        "/SharedResources/TaskDef/TaskRole/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "TaskDefTaskRole1EDB4A67"
-          }
-        ],
-        "/SharedResources/TaskDef/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "TaskDef54694570"
-          }
-        ],
-        "/SharedResources/Service/Service": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "ServiceD69D759B"
-          }
-        ],
-        "/SharedResources/Service/SecurityGroup/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "ServiceSecurityGroupC96ED6A7"
-          }
-        ],
-        "/SharedResources/Service/SecurityGroup/from SharedResourcesLBSecurityGroup807A309E:80": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "ServiceSecurityGroupfromSharedResourcesLBSecurityGroup807A309E80783BE52E"
-          }
-        ],
-        "/SharedResources/my_app_listener_rule/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "myapplistenerruleFABDF610"
-          }
-        ],
-        "/SharedResources/app_record_set/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "apprecordset1E03742F"
-          }
-        ],
         "/SharedResources/CDKMetadata/Default": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CDKMetadata"
+          }
+        ],
+        "/SharedResources/Exports/Output{\"Ref\":\"EcsCluster97242B84\"}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputRefEcsCluster97242B84553A5D8F"
+          }
+        ],
+        "/SharedResources/Exports/Output{\"Ref\":\"LBListenertestcdkapptargetGroup18BD0DB9\"}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputRefLBListenertestcdkapptargetGroup18BD0DB9D9A2511E"
+          }
+        ],
+        "/SharedResources/Exports/Output{\"Ref\":\"VpcPrivateSubnet1Subnet536B997A\"}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputRefVpcPrivateSubnet1Subnet536B997AFD4CC940"
+          }
+        ],
+        "/SharedResources/Exports/Output{\"Ref\":\"VpcPrivateSubnet2Subnet3788AAA1\"}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputRefVpcPrivateSubnet2Subnet3788AAA1380949A3"
+          }
+        ],
+        "/SharedResources/Exports/Output{\"Ref\":\"Vpc8378EB38\"}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputRefVpc8378EB38272D6E3A"
+          }
+        ],
+        "/SharedResources/Exports/Output{\"Fn::GetAtt\":[\"LBSecurityGroup8A41EA2B\",\"GroupId\"]}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputFnGetAttLBSecurityGroup8A41EA2BGroupId851EE1F6"
+          }
+        ],
+        "/SharedResources/Exports/Output{\"Ref\":\"LBListener49E825B4\"}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputRefLBListener49E825B45EB41560"
+          }
+        ],
+        "/SharedResources/Exports/Output{\"Fn::GetAtt\":[\"LB8A12904C\",\"CanonicalHostedZoneID\"]}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputFnGetAttLB8A12904CCanonicalHostedZoneID7E82D79E"
+          }
+        ],
+        "/SharedResources/Exports/Output{\"Fn::GetAtt\":[\"LB8A12904C\",\"DNSName\"]}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputFnGetAttLB8A12904CDNSName5EFD7323"
           }
         ],
         "/SharedResources/BootstrapVersion": [
@@ -304,6 +310,108 @@
         ]
       },
       "displayName": "SharedResources"
+    },
+    "ExampleService.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "ExampleService.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "ExampleService": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://645571371616/eu-west-1",
+      "properties": {
+        "templateFile": "ExampleService.template.json",
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::645571371616:role/cdk-hnb659fds-deploy-role-645571371616-eu-west-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::645571371616:role/cdk-hnb659fds-cfn-exec-role-645571371616-eu-west-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-645571371616-eu-west-1/a5db8953eb24317f5d732335b2f81f45fb99f51d722ef31316e7d0f197042faf.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "ExampleService.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::645571371616:role/cdk-hnb659fds-lookup-role-645571371616-eu-west-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "SharedResources",
+        "ExampleService.assets"
+      ],
+      "metadata": {
+        "/ExampleService/test-cdk_task_def/TaskRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "testcdktaskdefTaskRole39A5315F"
+          }
+        ],
+        "/ExampleService/test-cdk_task_def/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "testcdktaskdef8B3A2224"
+          }
+        ],
+        "/ExampleService/test-cdk_service/Service": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "testcdkserviceService99433DFC"
+          }
+        ],
+        "/ExampleService/test-cdk_service/SecurityGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "testcdkserviceSecurityGroupA204843B"
+          }
+        ],
+        "/ExampleService/test-cdk_service/SecurityGroup/from SharedResourcesLBSecurityGroup807A309E:80": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "testcdkserviceSecurityGroupfromSharedResourcesLBSecurityGroup807A309E80760D2BE5"
+          }
+        ],
+        "/ExampleService/test-cdk_service/SecurityGroup/SharedResourcesLBSecurityGroup807A309E:80 from": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "testcdkserviceSecurityGroupSharedResourcesLBSecurityGroup807A309E80from11967BDC"
+          }
+        ],
+        "/ExampleService/test-cdk_listener_rule/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "testcdklistenerruleB7388188"
+          }
+        ],
+        "/ExampleService/test-cdk_app_record_set/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "testcdkapprecordsetDDA0AA8D"
+          }
+        ],
+        "/ExampleService/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/ExampleService/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/ExampleService/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "ExampleService"
     }
   }
 }

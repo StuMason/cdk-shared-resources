@@ -1,0 +1,274 @@
+{
+  "Resources": {
+    "testcdktaskdefTaskRole39A5315F": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "ecs-tasks.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "ExampleService/test-cdk_task_def/TaskRole/Resource"
+      }
+    },
+    "testcdktaskdef8B3A2224": {
+      "Type": "AWS::ECS::TaskDefinition",
+      "Properties": {
+        "ContainerDefinitions": [
+          {
+            "Essential": true,
+            "Image": "amazon/amazon-ecs-sample",
+            "Name": "test-cdk_web_container",
+            "PortMappings": [
+              {
+                "ContainerPort": 80,
+                "Protocol": "tcp"
+              }
+            ]
+          }
+        ],
+        "Cpu": "256",
+        "Family": "ExampleServicetestcdktaskdef0794CA3E",
+        "Memory": "512",
+        "NetworkMode": "awsvpc",
+        "RequiresCompatibilities": [
+          "FARGATE"
+        ],
+        "TaskRoleArn": {
+          "Fn::GetAtt": [
+            "testcdktaskdefTaskRole39A5315F",
+            "Arn"
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "ExampleService/test-cdk_task_def/Resource"
+      }
+    },
+    "testcdkserviceService99433DFC": {
+      "Type": "AWS::ECS::Service",
+      "Properties": {
+        "Cluster": {
+          "Fn::ImportValue": "SharedResources:ExportsOutputRefEcsCluster97242B84553A5D8F"
+        },
+        "DeploymentConfiguration": {
+          "MaximumPercent": 200,
+          "MinimumHealthyPercent": 50
+        },
+        "DesiredCount": 1,
+        "EnableECSManagedTags": false,
+        "HealthCheckGracePeriodSeconds": 60,
+        "LaunchType": "FARGATE",
+        "LoadBalancers": [
+          {
+            "ContainerName": "test-cdk_web_container",
+            "ContainerPort": 80,
+            "TargetGroupArn": {
+              "Fn::ImportValue": "SharedResources:ExportsOutputRefLBListenertestcdkapptargetGroup18BD0DB9D9A2511E"
+            }
+          }
+        ],
+        "NetworkConfiguration": {
+          "AwsvpcConfiguration": {
+            "AssignPublicIp": "DISABLED",
+            "SecurityGroups": [
+              {
+                "Fn::GetAtt": [
+                  "testcdkserviceSecurityGroupA204843B",
+                  "GroupId"
+                ]
+              }
+            ],
+            "Subnets": [
+              {
+                "Fn::ImportValue": "SharedResources:ExportsOutputRefVpcPrivateSubnet1Subnet536B997AFD4CC940"
+              },
+              {
+                "Fn::ImportValue": "SharedResources:ExportsOutputRefVpcPrivateSubnet2Subnet3788AAA1380949A3"
+              }
+            ]
+          }
+        },
+        "TaskDefinition": {
+          "Ref": "testcdktaskdef8B3A2224"
+        }
+      },
+      "DependsOn": [
+        "testcdklistenerruleB7388188"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "ExampleService/test-cdk_service/Service"
+      }
+    },
+    "testcdkserviceSecurityGroupA204843B": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "ExampleService/test-cdk_service/SecurityGroup",
+        "SecurityGroupEgress": [
+          {
+            "CidrIp": "0.0.0.0/0",
+            "Description": "Allow all outbound traffic by default",
+            "IpProtocol": "-1"
+          }
+        ],
+        "VpcId": {
+          "Fn::ImportValue": "SharedResources:ExportsOutputRefVpc8378EB38272D6E3A"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "ExampleService/test-cdk_service/SecurityGroup/Resource"
+      }
+    },
+    "testcdkserviceSecurityGroupfromSharedResourcesLBSecurityGroup807A309E80760D2BE5": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "IpProtocol": "tcp",
+        "Description": "Load balancer to target",
+        "FromPort": 80,
+        "GroupId": {
+          "Fn::GetAtt": [
+            "testcdkserviceSecurityGroupA204843B",
+            "GroupId"
+          ]
+        },
+        "SourceSecurityGroupId": {
+          "Fn::ImportValue": "SharedResources:ExportsOutputFnGetAttLBSecurityGroup8A41EA2BGroupId851EE1F6"
+        },
+        "ToPort": 80
+      },
+      "Metadata": {
+        "aws:cdk:path": "ExampleService/test-cdk_service/SecurityGroup/from SharedResourcesLBSecurityGroup807A309E:80"
+      }
+    },
+    "testcdkserviceSecurityGroupSharedResourcesLBSecurityGroup807A309E80from11967BDC": {
+      "Type": "AWS::EC2::SecurityGroupEgress",
+      "Properties": {
+        "GroupId": {
+          "Fn::ImportValue": "SharedResources:ExportsOutputFnGetAttLBSecurityGroup8A41EA2BGroupId851EE1F6"
+        },
+        "IpProtocol": "tcp",
+        "Description": "Load balancer to target",
+        "DestinationSecurityGroupId": {
+          "Fn::GetAtt": [
+            "testcdkserviceSecurityGroupA204843B",
+            "GroupId"
+          ]
+        },
+        "FromPort": 80,
+        "ToPort": 80
+      },
+      "Metadata": {
+        "aws:cdk:path": "ExampleService/test-cdk_service/SecurityGroup/SharedResourcesLBSecurityGroup807A309E:80 from"
+      }
+    },
+    "testcdklistenerruleB7388188": {
+      "Type": "AWS::ElasticLoadBalancingV2::ListenerRule",
+      "Properties": {
+        "Actions": [
+          {
+            "TargetGroupArn": {
+              "Fn::ImportValue": "SharedResources:ExportsOutputRefLBListenertestcdkapptargetGroup18BD0DB9D9A2511E"
+            },
+            "Type": "forward"
+          }
+        ],
+        "Conditions": [
+          {
+            "Field": "host-header",
+            "HostHeaderConfig": {
+              "Values": [
+                "test-cdk.stuartmason.co.uk"
+              ]
+            }
+          }
+        ],
+        "ListenerArn": {
+          "Fn::ImportValue": "SharedResources:ExportsOutputRefLBListener49E825B45EB41560"
+        },
+        "Priority": 123
+      },
+      "Metadata": {
+        "aws:cdk:path": "ExampleService/test-cdk_listener_rule/Resource"
+      }
+    },
+    "testcdkapprecordsetDDA0AA8D": {
+      "Type": "AWS::Route53::RecordSet",
+      "Properties": {
+        "Name": "test-cdk.stuartmason.co.uk.",
+        "Type": "A",
+        "AliasTarget": {
+          "DNSName": {
+            "Fn::Join": [
+              "",
+              [
+                "dualstack.",
+                {
+                  "Fn::ImportValue": "SharedResources:ExportsOutputFnGetAttLB8A12904CDNSName5EFD7323"
+                }
+              ]
+            ]
+          },
+          "HostedZoneId": {
+            "Fn::ImportValue": "SharedResources:ExportsOutputFnGetAttLB8A12904CCanonicalHostedZoneID7E82D79E"
+          }
+        },
+        "HostedZoneId": "Z063469514DB4MIV8JGPO"
+      },
+      "Metadata": {
+        "aws:cdk:path": "ExampleService/test-cdk_app_record_set/Resource"
+      }
+    },
+    "CDKMetadata": {
+      "Type": "AWS::CDK::Metadata",
+      "Properties": {
+        "Analytics": "v2:deflate64:H4sIAAAAAAAA/32PT0/DMAzFP8vuaWAdSFwR/4TEAaXcked6xTRLqsQZmqp8d9J2SBNInPz8k97zc63XV/pyBV+xwravLG/12Ahgrwp6HwmjHh8hdCD0BrG/px07FvZO3e3cb+KdADsKZ+zkbSgcGGkynWRWDHs9Gm9nOs2sCOtynjAFluNT8GlYHP+BZ9cFivEPf5hxybQQhdF6aLdgwSG77lDO3A6DZYSp5QtHodLbpKXM+Z5VCRO63hSHIfShnevOqiHJWRmKPoXluR+d1etRPry72Ogbva5Xn5G5CskJ70mbZX4DxLyJvXsBAAA="
+      },
+      "Metadata": {
+        "aws:cdk:path": "ExampleService/CDKMetadata/Default"
+      }
+    }
+  },
+  "Parameters": {
+    "BootstrapVersion": {
+      "Type": "AWS::SSM::Parameter::Value<String>",
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+    }
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5"
+                  ],
+                  {
+                    "Ref": "BootstrapVersion"
+                  }
+                ]
+              }
+            ]
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+        }
+      ]
+    }
+  }
+}

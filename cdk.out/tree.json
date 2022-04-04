@@ -736,35 +736,6 @@
                       "fqn": "aws-cdk-lib.aws_ec2.CfnSecurityGroup",
                       "version": "2.14.0"
                     }
-                  },
-                  "to SharedResourcesServiceSecurityGroup0A87F7C3:80": {
-                    "id": "to SharedResourcesServiceSecurityGroup0A87F7C3:80",
-                    "path": "SharedResources/LB/SecurityGroup/to SharedResourcesServiceSecurityGroup0A87F7C3:80",
-                    "attributes": {
-                      "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroupEgress",
-                      "aws:cdk:cloudformation:props": {
-                        "groupId": {
-                          "Fn::GetAtt": [
-                            "LBSecurityGroup8A41EA2B",
-                            "GroupId"
-                          ]
-                        },
-                        "ipProtocol": "tcp",
-                        "description": "Load balancer to target",
-                        "destinationSecurityGroupId": {
-                          "Fn::GetAtt": [
-                            "ServiceSecurityGroupC96ED6A7",
-                            "GroupId"
-                          ]
-                        },
-                        "fromPort": 80,
-                        "toPort": 80
-                      }
-                    },
-                    "constructInfo": {
-                      "fqn": "aws-cdk-lib.aws_ec2.CfnSecurityGroupEgress",
-                      "version": "2.14.0"
-                    }
                   }
                 },
                 "constructInfo": {
@@ -786,7 +757,7 @@
                           {
                             "type": "forward",
                             "targetGroupArn": {
-                              "Ref": "LBListenerapptargetGroup5B3CA30A"
+                              "Ref": "LBListenertestcdkapptargetGroup18BD0DB9"
                             }
                           }
                         ],
@@ -802,13 +773,13 @@
                       "version": "2.14.0"
                     }
                   },
-                  "app_targetGroup": {
-                    "id": "app_targetGroup",
-                    "path": "SharedResources/LB/Listener/app_targetGroup",
+                  "test-cdk_app_targetGroup": {
+                    "id": "test-cdk_app_targetGroup",
+                    "path": "SharedResources/LB/Listener/test-cdk_app_targetGroup",
                     "children": {
                       "Resource": {
                         "id": "Resource",
-                        "path": "SharedResources/LB/Listener/app_targetGroup/Resource",
+                        "path": "SharedResources/LB/Listener/test-cdk_app_targetGroup/Resource",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::ElasticLoadBalancingV2::TargetGroup",
                           "aws:cdk:cloudformation:props": {
@@ -871,17 +842,127 @@
               "version": "2.14.0"
             }
           },
-          "TaskDef": {
-            "id": "TaskDef",
-            "path": "SharedResources/TaskDef",
+          "CDKMetadata": {
+            "id": "CDKMetadata",
+            "path": "SharedResources/CDKMetadata",
+            "children": {
+              "Default": {
+                "id": "Default",
+                "path": "SharedResources/CDKMetadata/Default",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnResource",
+                  "version": "2.14.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.0.104"
+            }
+          },
+          "Exports": {
+            "id": "Exports",
+            "path": "SharedResources/Exports",
+            "children": {
+              "Output{\"Ref\":\"EcsCluster97242B84\"}": {
+                "id": "Output{\"Ref\":\"EcsCluster97242B84\"}",
+                "path": "SharedResources/Exports/Output{\"Ref\":\"EcsCluster97242B84\"}",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnOutput",
+                  "version": "2.14.0"
+                }
+              },
+              "Output{\"Ref\":\"LBListenertestcdkapptargetGroup18BD0DB9\"}": {
+                "id": "Output{\"Ref\":\"LBListenertestcdkapptargetGroup18BD0DB9\"}",
+                "path": "SharedResources/Exports/Output{\"Ref\":\"LBListenertestcdkapptargetGroup18BD0DB9\"}",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnOutput",
+                  "version": "2.14.0"
+                }
+              },
+              "Output{\"Ref\":\"VpcPrivateSubnet1Subnet536B997A\"}": {
+                "id": "Output{\"Ref\":\"VpcPrivateSubnet1Subnet536B997A\"}",
+                "path": "SharedResources/Exports/Output{\"Ref\":\"VpcPrivateSubnet1Subnet536B997A\"}",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnOutput",
+                  "version": "2.14.0"
+                }
+              },
+              "Output{\"Ref\":\"VpcPrivateSubnet2Subnet3788AAA1\"}": {
+                "id": "Output{\"Ref\":\"VpcPrivateSubnet2Subnet3788AAA1\"}",
+                "path": "SharedResources/Exports/Output{\"Ref\":\"VpcPrivateSubnet2Subnet3788AAA1\"}",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnOutput",
+                  "version": "2.14.0"
+                }
+              },
+              "Output{\"Ref\":\"Vpc8378EB38\"}": {
+                "id": "Output{\"Ref\":\"Vpc8378EB38\"}",
+                "path": "SharedResources/Exports/Output{\"Ref\":\"Vpc8378EB38\"}",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnOutput",
+                  "version": "2.14.0"
+                }
+              },
+              "Output{\"Fn::GetAtt\":[\"LBSecurityGroup8A41EA2B\",\"GroupId\"]}": {
+                "id": "Output{\"Fn::GetAtt\":[\"LBSecurityGroup8A41EA2B\",\"GroupId\"]}",
+                "path": "SharedResources/Exports/Output{\"Fn::GetAtt\":[\"LBSecurityGroup8A41EA2B\",\"GroupId\"]}",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnOutput",
+                  "version": "2.14.0"
+                }
+              },
+              "Output{\"Ref\":\"LBListener49E825B4\"}": {
+                "id": "Output{\"Ref\":\"LBListener49E825B4\"}",
+                "path": "SharedResources/Exports/Output{\"Ref\":\"LBListener49E825B4\"}",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnOutput",
+                  "version": "2.14.0"
+                }
+              },
+              "Output{\"Fn::GetAtt\":[\"LB8A12904C\",\"CanonicalHostedZoneID\"]}": {
+                "id": "Output{\"Fn::GetAtt\":[\"LB8A12904C\",\"CanonicalHostedZoneID\"]}",
+                "path": "SharedResources/Exports/Output{\"Fn::GetAtt\":[\"LB8A12904C\",\"CanonicalHostedZoneID\"]}",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnOutput",
+                  "version": "2.14.0"
+                }
+              },
+              "Output{\"Fn::GetAtt\":[\"LB8A12904C\",\"DNSName\"]}": {
+                "id": "Output{\"Fn::GetAtt\":[\"LB8A12904C\",\"DNSName\"]}",
+                "path": "SharedResources/Exports/Output{\"Fn::GetAtt\":[\"LB8A12904C\",\"DNSName\"]}",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnOutput",
+                  "version": "2.14.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.0.104"
+            }
+          }
+        },
+        "constructInfo": {
+          "fqn": "aws-cdk-lib.Stack",
+          "version": "2.14.0"
+        }
+      },
+      "ExampleService": {
+        "id": "ExampleService",
+        "path": "ExampleService",
+        "children": {
+          "test-cdk_task_def": {
+            "id": "test-cdk_task_def",
+            "path": "ExampleService/test-cdk_task_def",
             "children": {
               "TaskRole": {
                 "id": "TaskRole",
-                "path": "SharedResources/TaskDef/TaskRole",
+                "path": "ExampleService/test-cdk_task_def/TaskRole",
                 "children": {
                   "Resource": {
                     "id": "Resource",
-                    "path": "SharedResources/TaskDef/TaskRole/Resource",
+                    "path": "ExampleService/test-cdk_task_def/TaskRole/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::IAM::Role",
                       "aws:cdk:cloudformation:props": {
@@ -912,7 +993,7 @@
               },
               "Resource": {
                 "id": "Resource",
-                "path": "SharedResources/TaskDef/Resource",
+                "path": "ExampleService/test-cdk_task_def/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::ECS::TaskDefinition",
                   "aws:cdk:cloudformation:props": {
@@ -920,7 +1001,7 @@
                       {
                         "essential": true,
                         "image": "amazon/amazon-ecs-sample",
-                        "name": "WebContainer",
+                        "name": "test-cdk_web_container",
                         "portMappings": [
                           {
                             "containerPort": 80,
@@ -930,7 +1011,7 @@
                       }
                     ],
                     "cpu": "256",
-                    "family": "SharedResourcesTaskDef8C55BFD2",
+                    "family": "ExampleServicetestcdktaskdef0794CA3E",
                     "memory": "512",
                     "networkMode": "awsvpc",
                     "requiresCompatibilities": [
@@ -938,7 +1019,7 @@
                     ],
                     "taskRoleArn": {
                       "Fn::GetAtt": [
-                        "TaskDefTaskRole1EDB4A67",
+                        "testcdktaskdefTaskRole39A5315F",
                         "Arn"
                       ]
                     }
@@ -949,9 +1030,9 @@
                   "version": "2.14.0"
                 }
               },
-              "WebContainer": {
-                "id": "WebContainer",
-                "path": "SharedResources/TaskDef/WebContainer",
+              "test-cdk_web_container": {
+                "id": "test-cdk_web_container",
+                "path": "ExampleService/test-cdk_task_def/test-cdk_web_container",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.aws_ecs.ContainerDefinition",
                   "version": "2.14.0"
@@ -963,18 +1044,18 @@
               "version": "2.14.0"
             }
           },
-          "Service": {
-            "id": "Service",
-            "path": "SharedResources/Service",
+          "test-cdk_service": {
+            "id": "test-cdk_service",
+            "path": "ExampleService/test-cdk_service",
             "children": {
               "Service": {
                 "id": "Service",
-                "path": "SharedResources/Service/Service",
+                "path": "ExampleService/test-cdk_service/Service",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::ECS::Service",
                   "aws:cdk:cloudformation:props": {
                     "cluster": {
-                      "Ref": "EcsCluster97242B84"
+                      "Fn::ImportValue": "SharedResources:ExportsOutputRefEcsCluster97242B84553A5D8F"
                     },
                     "deploymentConfiguration": {
                       "maximumPercent": 200,
@@ -987,9 +1068,9 @@
                     "loadBalancers": [
                       {
                         "targetGroupArn": {
-                          "Ref": "LBListenerapptargetGroup5B3CA30A"
+                          "Fn::ImportValue": "SharedResources:ExportsOutputRefLBListenertestcdkapptargetGroup18BD0DB9D9A2511E"
                         },
-                        "containerName": "WebContainer",
+                        "containerName": "test-cdk_web_container",
                         "containerPort": 80
                       }
                     ],
@@ -998,16 +1079,16 @@
                         "assignPublicIp": "DISABLED",
                         "subnets": [
                           {
-                            "Ref": "VpcPrivateSubnet1Subnet536B997A"
+                            "Fn::ImportValue": "SharedResources:ExportsOutputRefVpcPrivateSubnet1Subnet536B997AFD4CC940"
                           },
                           {
-                            "Ref": "VpcPrivateSubnet2Subnet3788AAA1"
+                            "Fn::ImportValue": "SharedResources:ExportsOutputRefVpcPrivateSubnet2Subnet3788AAA1380949A3"
                           }
                         ],
                         "securityGroups": [
                           {
                             "Fn::GetAtt": [
-                              "ServiceSecurityGroupC96ED6A7",
+                              "testcdkserviceSecurityGroupA204843B",
                               "GroupId"
                             ]
                           }
@@ -1015,7 +1096,7 @@
                       }
                     },
                     "taskDefinition": {
-                      "Ref": "TaskDef54694570"
+                      "Ref": "testcdktaskdef8B3A2224"
                     }
                   }
                 },
@@ -1026,15 +1107,15 @@
               },
               "SecurityGroup": {
                 "id": "SecurityGroup",
-                "path": "SharedResources/Service/SecurityGroup",
+                "path": "ExampleService/test-cdk_service/SecurityGroup",
                 "children": {
                   "Resource": {
                     "id": "Resource",
-                    "path": "SharedResources/Service/SecurityGroup/Resource",
+                    "path": "ExampleService/test-cdk_service/SecurityGroup/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroup",
                       "aws:cdk:cloudformation:props": {
-                        "groupDescription": "SharedResources/Service/SecurityGroup",
+                        "groupDescription": "ExampleService/test-cdk_service/SecurityGroup",
                         "securityGroupEgress": [
                           {
                             "cidrIp": "0.0.0.0/0",
@@ -1043,7 +1124,7 @@
                           }
                         ],
                         "vpcId": {
-                          "Ref": "Vpc8378EB38"
+                          "Fn::ImportValue": "SharedResources:ExportsOutputRefVpc8378EB38272D6E3A"
                         }
                       }
                     },
@@ -1054,7 +1135,7 @@
                   },
                   "from SharedResourcesLBSecurityGroup807A309E:80": {
                     "id": "from SharedResourcesLBSecurityGroup807A309E:80",
-                    "path": "SharedResources/Service/SecurityGroup/from SharedResourcesLBSecurityGroup807A309E:80",
+                    "path": "ExampleService/test-cdk_service/SecurityGroup/from SharedResourcesLBSecurityGroup807A309E:80",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroupIngress",
                       "aws:cdk:cloudformation:props": {
@@ -1063,21 +1144,44 @@
                         "fromPort": 80,
                         "groupId": {
                           "Fn::GetAtt": [
-                            "ServiceSecurityGroupC96ED6A7",
+                            "testcdkserviceSecurityGroupA204843B",
                             "GroupId"
                           ]
                         },
                         "sourceSecurityGroupId": {
-                          "Fn::GetAtt": [
-                            "LBSecurityGroup8A41EA2B",
-                            "GroupId"
-                          ]
+                          "Fn::ImportValue": "SharedResources:ExportsOutputFnGetAttLBSecurityGroup8A41EA2BGroupId851EE1F6"
                         },
                         "toPort": 80
                       }
                     },
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.aws_ec2.CfnSecurityGroupIngress",
+                      "version": "2.14.0"
+                    }
+                  },
+                  "SharedResourcesLBSecurityGroup807A309E:80 from": {
+                    "id": "SharedResourcesLBSecurityGroup807A309E:80 from",
+                    "path": "ExampleService/test-cdk_service/SecurityGroup/SharedResourcesLBSecurityGroup807A309E:80 from",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroupEgress",
+                      "aws:cdk:cloudformation:props": {
+                        "groupId": {
+                          "Fn::ImportValue": "SharedResources:ExportsOutputFnGetAttLBSecurityGroup8A41EA2BGroupId851EE1F6"
+                        },
+                        "ipProtocol": "tcp",
+                        "description": "Load balancer to target",
+                        "destinationSecurityGroupId": {
+                          "Fn::GetAtt": [
+                            "testcdkserviceSecurityGroupA204843B",
+                            "GroupId"
+                          ]
+                        },
+                        "fromPort": 80,
+                        "toPort": 80
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_ec2.CfnSecurityGroupEgress",
                       "version": "2.14.0"
                     }
                   }
@@ -1093,13 +1197,13 @@
               "version": "2.14.0"
             }
           },
-          "my_app_listener_rule": {
-            "id": "my_app_listener_rule",
-            "path": "SharedResources/my_app_listener_rule",
+          "test-cdk_listener_rule": {
+            "id": "test-cdk_listener_rule",
+            "path": "ExampleService/test-cdk_listener_rule",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "SharedResources/my_app_listener_rule/Resource",
+                "path": "ExampleService/test-cdk_listener_rule/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::ElasticLoadBalancingV2::ListenerRule",
                   "aws:cdk:cloudformation:props": {
@@ -1107,22 +1211,22 @@
                       {
                         "type": "forward",
                         "targetGroupArn": {
-                          "Ref": "LBListenerapptargetGroup5B3CA30A"
+                          "Fn::ImportValue": "SharedResources:ExportsOutputRefLBListenertestcdkapptargetGroup18BD0DB9D9A2511E"
                         }
                       }
                     ],
                     "conditions": [
                       {
-                        "field": "path-pattern",
-                        "pathPatternConfig": {
+                        "field": "host-header",
+                        "hostHeaderConfig": {
                           "values": [
-                            "/test"
+                            "test-cdk.stuartmason.co.uk"
                           ]
                         }
                       }
                     ],
                     "listenerArn": {
-                      "Ref": "LBListener49E825B4"
+                      "Fn::ImportValue": "SharedResources:ExportsOutputRefLBListener49E825B45EB41560"
                     },
                     "priority": 123
                   }
@@ -1140,30 +1244,27 @@
           },
           "zone": {
             "id": "zone",
-            "path": "SharedResources/zone",
+            "path": "ExampleService/zone",
             "constructInfo": {
               "fqn": "aws-cdk-lib.Resource",
               "version": "2.14.0"
             }
           },
-          "app_record_set": {
-            "id": "app_record_set",
-            "path": "SharedResources/app_record_set",
+          "test-cdk_app_record_set": {
+            "id": "test-cdk_app_record_set",
+            "path": "ExampleService/test-cdk_app_record_set",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "SharedResources/app_record_set/Resource",
+                "path": "ExampleService/test-cdk_app_record_set/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::Route53::RecordSet",
                   "aws:cdk:cloudformation:props": {
-                    "name": "test-cdk.recode.zone.",
+                    "name": "test-cdk.stuartmason.co.uk.",
                     "type": "A",
                     "aliasTarget": {
                       "hostedZoneId": {
-                        "Fn::GetAtt": [
-                          "LB8A12904C",
-                          "CanonicalHostedZoneID"
-                        ]
+                        "Fn::ImportValue": "SharedResources:ExportsOutputFnGetAttLB8A12904CCanonicalHostedZoneID7E82D79E"
                       },
                       "dnsName": {
                         "Fn::Join": [
@@ -1171,16 +1272,13 @@
                           [
                             "dualstack.",
                             {
-                              "Fn::GetAtt": [
-                                "LB8A12904C",
-                                "DNSName"
-                              ]
+                              "Fn::ImportValue": "SharedResources:ExportsOutputFnGetAttLB8A12904CDNSName5EFD7323"
                             }
                           ]
                         ]
                       }
                     },
-                    "hostedZoneId": "Z03515233CHQDVTSSTC5V"
+                    "hostedZoneId": "Z063469514DB4MIV8JGPO"
                   }
                 },
                 "constructInfo": {
@@ -1196,11 +1294,11 @@
           },
           "CDKMetadata": {
             "id": "CDKMetadata",
-            "path": "SharedResources/CDKMetadata",
+            "path": "ExampleService/CDKMetadata",
             "children": {
               "Default": {
                 "id": "Default",
-                "path": "SharedResources/CDKMetadata/Default",
+                "path": "ExampleService/CDKMetadata/Default",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.CfnResource",
                   "version": "2.14.0"
