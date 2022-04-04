@@ -6,6 +6,7 @@ from aws_cdk import (
     aws_elasticloadbalancingv2 as elbv2,
     aws_route53_targets as targets
 )
+from cdk_watchful import Watchful
 from constructs import Construct
 
 class Service(Stack):
@@ -54,3 +55,9 @@ class Service(Stack):
             zone=zone,
             record_name=f"{app_name}.{domain}"
         )
+
+        wf = Watchful(self, "watchful",
+            alarm_email="stu@stuartmason.co.uk"
+        )
+
+        wf.watch_scope(self)

@@ -7,6 +7,7 @@ from aws_cdk import (
     aws_route53_targets as targets
 )
 from constructs import Construct
+from cdk_watchful import Watchful
 
 class SharedResources(Stack):
 
@@ -39,3 +40,9 @@ class SharedResources(Stack):
         )
 
         self.cluster = ecs.Cluster(self, "ecs_cluster", vpc=self.vpc)
+
+        wf = Watchful(self, "watchful",
+            alarm_email="stu@stuartmason.co.uk"
+        )
+
+        wf.watch_scope(self)

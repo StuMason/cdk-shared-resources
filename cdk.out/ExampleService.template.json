@@ -58,7 +58,7 @@
       "Type": "AWS::ECS::Service",
       "Properties": {
         "Cluster": {
-          "Fn::ImportValue": "SharedResources:ExportsOutputRefEcsCluster97242B84553A5D8F"
+          "Fn::ImportValue": "NonProd:ExportsOutputRefecscluster8A6F06098DACA837"
         },
         "DeploymentConfiguration": {
           "MaximumPercent": 200,
@@ -73,7 +73,7 @@
             "ContainerName": "test-cdk_web_container",
             "ContainerPort": 80,
             "TargetGroupArn": {
-              "Fn::ImportValue": "SharedResources:ExportsOutputRefLBListenertestcdkapptargetGroup18BD0DB9D9A2511E"
+              "Fn::ImportValue": "NonProd:ExportsOutputRefloadbalancerlistenertestcdkapptargetGroup3E7CBB98AC8ABA92"
             }
           }
         ],
@@ -90,10 +90,10 @@
             ],
             "Subnets": [
               {
-                "Fn::ImportValue": "SharedResources:ExportsOutputRefVpcPrivateSubnet1Subnet536B997AFD4CC940"
+                "Fn::ImportValue": "NonProd:ExportsOutputRefVpcPrivateSubnet1Subnet536B997AFD4CC940"
               },
               {
-                "Fn::ImportValue": "SharedResources:ExportsOutputRefVpcPrivateSubnet2Subnet3788AAA1380949A3"
+                "Fn::ImportValue": "NonProd:ExportsOutputRefVpcPrivateSubnet2Subnet3788AAA1380949A3"
               }
             ]
           }
@@ -121,14 +121,14 @@
           }
         ],
         "VpcId": {
-          "Fn::ImportValue": "SharedResources:ExportsOutputRefVpc8378EB38272D6E3A"
+          "Fn::ImportValue": "NonProd:ExportsOutputRefVpc8378EB38272D6E3A"
         }
       },
       "Metadata": {
         "aws:cdk:path": "ExampleService/test-cdk_service/SecurityGroup/Resource"
       }
     },
-    "testcdkserviceSecurityGroupfromSharedResourcesLBSecurityGroup807A309E80760D2BE5": {
+    "testcdkserviceSecurityGroupfromNonProdloadbalancerSecurityGroup4403ACCD801F4CA7CA": {
       "Type": "AWS::EC2::SecurityGroupIngress",
       "Properties": {
         "IpProtocol": "tcp",
@@ -141,19 +141,19 @@
           ]
         },
         "SourceSecurityGroupId": {
-          "Fn::ImportValue": "SharedResources:ExportsOutputFnGetAttLBSecurityGroup8A41EA2BGroupId851EE1F6"
+          "Fn::ImportValue": "NonProd:ExportsOutputFnGetAttloadbalancerSecurityGroup2D54D16BGroupIdA38703E0"
         },
         "ToPort": 80
       },
       "Metadata": {
-        "aws:cdk:path": "ExampleService/test-cdk_service/SecurityGroup/from SharedResourcesLBSecurityGroup807A309E:80"
+        "aws:cdk:path": "ExampleService/test-cdk_service/SecurityGroup/from NonProdloadbalancerSecurityGroup4403ACCD:80"
       }
     },
-    "testcdkserviceSecurityGroupSharedResourcesLBSecurityGroup807A309E80from11967BDC": {
+    "testcdkserviceSecurityGroupNonProdloadbalancerSecurityGroup4403ACCD80from6D1F6F72": {
       "Type": "AWS::EC2::SecurityGroupEgress",
       "Properties": {
         "GroupId": {
-          "Fn::ImportValue": "SharedResources:ExportsOutputFnGetAttLBSecurityGroup8A41EA2BGroupId851EE1F6"
+          "Fn::ImportValue": "NonProd:ExportsOutputFnGetAttloadbalancerSecurityGroup2D54D16BGroupIdA38703E0"
         },
         "IpProtocol": "tcp",
         "Description": "Load balancer to target",
@@ -167,7 +167,7 @@
         "ToPort": 80
       },
       "Metadata": {
-        "aws:cdk:path": "ExampleService/test-cdk_service/SecurityGroup/SharedResourcesLBSecurityGroup807A309E:80 from"
+        "aws:cdk:path": "ExampleService/test-cdk_service/SecurityGroup/NonProdloadbalancerSecurityGroup4403ACCD:80 from"
       }
     },
     "testcdklistenerruleB7388188": {
@@ -176,7 +176,7 @@
         "Actions": [
           {
             "TargetGroupArn": {
-              "Fn::ImportValue": "SharedResources:ExportsOutputRefLBListenertestcdkapptargetGroup18BD0DB9D9A2511E"
+              "Fn::ImportValue": "NonProd:ExportsOutputRefloadbalancerlistenertestcdkapptargetGroup3E7CBB98AC8ABA92"
             },
             "Type": "forward"
           }
@@ -192,7 +192,7 @@
           }
         ],
         "ListenerArn": {
-          "Fn::ImportValue": "SharedResources:ExportsOutputRefLBListener49E825B45EB41560"
+          "Fn::ImportValue": "NonProd:ExportsOutputRefloadbalancerlistenerB674CF48E545F93C"
         },
         "Priority": 123
       },
@@ -212,13 +212,13 @@
               [
                 "dualstack.",
                 {
-                  "Fn::ImportValue": "SharedResources:ExportsOutputFnGetAttLB8A12904CDNSName5EFD7323"
+                  "Fn::ImportValue": "NonProd:ExportsOutputFnGetAttloadbalancer25023A58DNSNameDEFD54B1"
                 }
               ]
             ]
           },
           "HostedZoneId": {
-            "Fn::ImportValue": "SharedResources:ExportsOutputFnGetAttLB8A12904CCanonicalHostedZoneID7E82D79E"
+            "Fn::ImportValue": "NonProd:ExportsOutputFnGetAttloadbalancer25023A58CanonicalHostedZoneID0B9B42C9"
           }
         },
         "HostedZoneId": "Z063469514DB4MIV8JGPO"
@@ -227,13 +227,59 @@
         "aws:cdk:path": "ExampleService/test-cdk_app_record_set/Resource"
       }
     },
+    "watchfulAlarmTopic1DB3DF22": {
+      "Type": "AWS::SNS::Topic",
+      "Properties": {
+        "DisplayName": "Watchful Alarms"
+      },
+      "Metadata": {
+        "aws:cdk:path": "ExampleService/watchful/AlarmTopic/Resource"
+      }
+    },
+    "watchfulAlarmTopicstustuartmasoncoukFC0F9A5D": {
+      "Type": "AWS::SNS::Subscription",
+      "Properties": {
+        "Protocol": "email",
+        "TopicArn": {
+          "Ref": "watchfulAlarmTopic1DB3DF22"
+        },
+        "Endpoint": "stu@stuartmason.co.uk"
+      },
+      "Metadata": {
+        "aws:cdk:path": "ExampleService/watchful/AlarmTopic/stu@stuartmason.co.uk/Resource"
+      }
+    },
+    "watchfulDashboard6A2D7A94": {
+      "Type": "AWS::CloudWatch::Dashboard",
+      "Properties": {
+        "DashboardBody": "{\"widgets\":[]}"
+      },
+      "Metadata": {
+        "aws:cdk:path": "ExampleService/watchful/Dashboard/Resource"
+      }
+    },
     "CDKMetadata": {
       "Type": "AWS::CDK::Metadata",
       "Properties": {
-        "Analytics": "v2:deflate64:H4sIAAAAAAAA/32PT0/DMAzFP8vuaWAdSFwR/4TEAaXcked6xTRLqsQZmqp8d9J2SBNInPz8k97zc63XV/pyBV+xwravLG/12Ahgrwp6HwmjHh8hdCD0BrG/px07FvZO3e3cb+KdADsKZ+zkbSgcGGkynWRWDHs9Gm9nOs2sCOtynjAFluNT8GlYHP+BZ9cFivEPf5hxybQQhdF6aLdgwSG77lDO3A6DZYSp5QtHodLbpKXM+Z5VCRO63hSHIfShnevOqiHJWRmKPoXluR+d1etRPry72Ogbva5Xn5G5CskJ70mbZX4DxLyJvXsBAAA="
+        "Analytics": "v2:deflate64:H4sIAAAAAAAA/32QQUvDQBCFf0vv29W2Cl7FqgiCkvQuk8k0HZPuht3ZlhL2v7vNVgkKnubNB2/m8ZZ6caOvZ3D0c6zbeceVHkoBbFVCHwOh18MTuAaENuDbNW3ZsLA16mFrfhNrBNiQm7CLtyR3YKSz6SKjYtjrobDdSM8zKsJlek8YHMvp2dnQZ8d/4MU0jrz/wx9HnG524IWxs1BX0IFBNs0hvbnv+44Rzilf2Qul3EXIYaZ7VOmY0O0qOQpC6+ox7qhKkqi8SRVtbM84VjKKMlQeHfffRU33qFKWUB9BcKeHNfhdZSFf/VliVAV5G1yu7C1IHyT/zTSq95PsrLla6Tu9WM4+PfPcBSO8J13k+QVcXMmx2wEAAA=="
       },
       "Metadata": {
         "aws:cdk:path": "ExampleService/CDKMetadata/Default"
+      }
+    }
+  },
+  "Outputs": {
+    "watchfulWatchfulDashboardF732C7A5": {
+      "Value": {
+        "Fn::Join": [
+          "",
+          [
+            "https://console.aws.amazon.com/cloudwatch/home?region=eu-west-1#dashboards:name=",
+            {
+              "Ref": "watchfulDashboard6A2D7A94"
+            }
+          ]
+        ]
       }
     }
   },
