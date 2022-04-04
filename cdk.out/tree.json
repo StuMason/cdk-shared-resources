@@ -1146,6 +1146,54 @@
               "version": "2.14.0"
             }
           },
+          "app_record_set": {
+            "id": "app_record_set",
+            "path": "SharedResources/app_record_set",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "SharedResources/app_record_set/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Route53::RecordSet",
+                  "aws:cdk:cloudformation:props": {
+                    "name": "test-cdk.recode.zone.",
+                    "type": "A",
+                    "aliasTarget": {
+                      "hostedZoneId": {
+                        "Fn::GetAtt": [
+                          "LB8A12904C",
+                          "CanonicalHostedZoneID"
+                        ]
+                      },
+                      "dnsName": {
+                        "Fn::Join": [
+                          "",
+                          [
+                            "dualstack.",
+                            {
+                              "Fn::GetAtt": [
+                                "LB8A12904C",
+                                "DNSName"
+                              ]
+                            }
+                          ]
+                        ]
+                      }
+                    },
+                    "hostedZoneId": "Z03515233CHQDVTSSTC5V"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_route53.CfnRecordSet",
+                  "version": "2.14.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_route53.ARecord",
+              "version": "2.14.0"
+            }
+          },
           "CDKMetadata": {
             "id": "CDKMetadata",
             "path": "SharedResources/CDKMetadata",

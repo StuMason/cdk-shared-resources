@@ -1,7 +1,7 @@
 {
   "version": "16.0.0",
   "files": {
-    "9e9cbd60da19f7c1e1850b2adc8ac59f6aa5c0f4498026839d50ac11b50764e0": {
+    "48ffd9631686a599f3de7de9dad1f2be8033a91248801e099e15c99292e1b04e": {
       "source": {
         "path": "SharedResources.template.json",
         "packaging": "file"
@@ -9,7 +9,7 @@
       "destinations": {
         "645571371616-eu-west-1": {
           "bucketName": "cdk-hnb659fds-assets-645571371616-eu-west-1",
-          "objectKey": "9e9cbd60da19f7c1e1850b2adc8ac59f6aa5c0f4498026839d50ac11b50764e0.json",
+          "objectKey": "48ffd9631686a599f3de7de9dad1f2be8033a91248801e099e15c99292e1b04e.json",
           "region": "eu-west-1",
           "assumeRoleArn": "arn:${AWS::Partition}:iam::645571371616:role/cdk-hnb659fds-file-publishing-role-645571371616-eu-west-1"
         }

@@ -756,10 +756,43 @@
         "aws:cdk:path": "SharedResources/my_app_listener_rule/Resource"
       }
     },
+    "apprecordset1E03742F": {
+      "Type": "AWS::Route53::RecordSet",
+      "Properties": {
+        "Name": "test-cdk.recode.zone.",
+        "Type": "A",
+        "AliasTarget": {
+          "DNSName": {
+            "Fn::Join": [
+              "",
+              [
+                "dualstack.",
+                {
+                  "Fn::GetAtt": [
+                    "LB8A12904C",
+                    "DNSName"
+                  ]
+                }
+              ]
+            ]
+          },
+          "HostedZoneId": {
+            "Fn::GetAtt": [
+              "LB8A12904C",
+              "CanonicalHostedZoneID"
+            ]
+          }
+        },
+        "HostedZoneId": "Z03515233CHQDVTSSTC5V"
+      },
+      "Metadata": {
+        "aws:cdk:path": "SharedResources/app_record_set/Resource"
+      }
+    },
     "CDKMetadata": {
       "Type": "AWS::CDK::Metadata",
       "Properties": {
-        "Analytics": "v2:deflate64:H4sIAAAAAAAA/31Ry27CMBD8Fu7GLbSHXimlCKmqogRxrTZmC1uCHdlrEIry73Vi0qQP9bQzk8lovDuVk3t5O4KzG6vtYVxQLquMQR1EkN4qVFNZbUol5u96k8xF4vOCVOZzjdxoPUqNZ1xDXmCv99rMOaMImIz+MjdgsUqa8Qq8BMYzXERi6RRgH7zSjDbgzhCbXNmMQ9f9ETWLDJW3xJelNb5sO/wrLHYWnfslr3Sr1wILcEyqMLDNoQCtSO9OYRmzsgwbaF+yBrsLvbr4IR24XkLCY5uAtrF940MfOUZ99XT4j++pjyse8lBXOVnNCx+0NqGDz6EUNEdwhyd8J03dCX4qRjNQiBto138ztCdS8awR1oLgKKvUxCbNrGuRojPeRmOHa5FceG/0zZ18kJPp6MMRja3XTEeUaZyfjW9wJIMCAAA="
+        "Analytics": "v2:deflate64:H4sIAAAAAAAA/31R0W7CMAz8Ft5DNmCT9soYQ0jTVLWI18kNBjxKUiUOCFX996UtXTs27cnn8+V0scdy9CDvB3B2Q7U5DDNKZZEwqIMI1EeBaiyLda7EbKvX0UxEPs1IJT7VyBXXodh4xhWkGXZ8x02dM4qAyehvcQXmy6gq78ALYDzDRUSWTgF2xkvNaANuBU2SazflkHV/RM0iQeUt8WVhjc/rDP8S851F537RS13zpcAMHJPKDGxSyEAr0rtTWMY0z8MG6p+swO5Crta+3/ZUb8HhuXZAW8l+9H0dOUZ91bT4j3nsmxX3+xBXOVnMMh+42qGFryEUVEdwhxfckqb2BLeM0QwU7Hrc9W2C9kSqOWsDS0FwlEVsmiRVLYWtbvo4CRuKURm7qSc1SpDLUsTojLeNT4tLEV14b/TdRD7J0Xjw6YiG1mumI8q4qV+LBUSKogIAAA=="
       },
       "Metadata": {
         "aws:cdk:path": "SharedResources/CDKMetadata/Default"

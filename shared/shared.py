@@ -4,6 +4,7 @@ from aws_cdk import (
     aws_ecs as ecs,
     aws_elasticloadbalancingv2 as elbv2,
     aws_route53 as route53,
+    aws_route53_targets as targets
 )
 from constructs import Construct
 
@@ -75,7 +76,7 @@ class SharedResources(Stack):
         )
 
         route53.ARecord(self, "app_record_set",
-            target=self.lb.load_balancer_dns_name,
+            target=route53.RecordTarget.from_alias(targets.LoadBalancerTarget(self.lb)),
             zone=zone,
             record_name="test-cdk.recode.zone"
         )

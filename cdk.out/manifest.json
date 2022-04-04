@@ -23,7 +23,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::645571371616:role/cdk-hnb659fds-deploy-role-645571371616-eu-west-1",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::645571371616:role/cdk-hnb659fds-cfn-exec-role-645571371616-eu-west-1",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-645571371616-eu-west-1/9e9cbd60da19f7c1e1850b2adc8ac59f6aa5c0f4498026839d50ac11b50764e0.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-645571371616-eu-west-1/48ffd9631686a599f3de7de9dad1f2be8033a91248801e099e15c99292e1b04e.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -206,20 +206,20 @@
             "type": "aws:cdk:warning",
             "data": "A default Action already existed on this Listener and was replaced. Configure exactly one default Action.",
             "trace": [
-              "Annotations.addMessage (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/jsii-kernel-zuqDuO/node_modules/aws-cdk-lib/core/lib/annotations.js:1:1213)",
-              "Annotations.addWarning (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/jsii-kernel-zuqDuO/node_modules/aws-cdk-lib/core/lib/annotations.js:1:600)",
-              "ApplicationListener._setDefaultAction (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/jsii-kernel-zuqDuO/node_modules/aws-cdk-lib/aws-elasticloadbalancingv2/lib/shared/base-listener.js:1:2143)",
-              "ApplicationListener.setDefaultAction (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/jsii-kernel-zuqDuO/node_modules/aws-cdk-lib/aws-elasticloadbalancingv2/lib/alb/application-listener.js:1:7426)",
-              "ApplicationListener.addTargetGroups (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/jsii-kernel-zuqDuO/node_modules/aws-cdk-lib/aws-elasticloadbalancingv2/lib/alb/application-listener.js:1:4626)",
-              "ApplicationListener.addTargets (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/jsii-kernel-zuqDuO/node_modules/aws-cdk-lib/aws-elasticloadbalancingv2/lib/alb/application-listener.js:1:5178)",
-              "/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/tmpjx3nkl2o/lib/program.js:8228:134",
-              "Kernel._wrapSandboxCode (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/tmpjx3nkl2o/lib/program.js:8840:24)",
-              "/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/tmpjx3nkl2o/lib/program.js:8228:107",
-              "Kernel._ensureSync (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/tmpjx3nkl2o/lib/program.js:8821:28)",
-              "Kernel.invoke (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/tmpjx3nkl2o/lib/program.js:8228:34)",
-              "KernelHost.processRequest (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/tmpjx3nkl2o/lib/program.js:9761:36)",
-              "KernelHost.run (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/tmpjx3nkl2o/lib/program.js:9724:22)",
-              "Immediate._onImmediate (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/tmpjx3nkl2o/lib/program.js:9725:46)",
+              "Annotations.addMessage (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/jsii-kernel-6vfxKt/node_modules/aws-cdk-lib/core/lib/annotations.js:1:1213)",
+              "Annotations.addWarning (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/jsii-kernel-6vfxKt/node_modules/aws-cdk-lib/core/lib/annotations.js:1:600)",
+              "ApplicationListener._setDefaultAction (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/jsii-kernel-6vfxKt/node_modules/aws-cdk-lib/aws-elasticloadbalancingv2/lib/shared/base-listener.js:1:2143)",
+              "ApplicationListener.setDefaultAction (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/jsii-kernel-6vfxKt/node_modules/aws-cdk-lib/aws-elasticloadbalancingv2/lib/alb/application-listener.js:1:7426)",
+              "ApplicationListener.addTargetGroups (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/jsii-kernel-6vfxKt/node_modules/aws-cdk-lib/aws-elasticloadbalancingv2/lib/alb/application-listener.js:1:4626)",
+              "ApplicationListener.addTargets (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/jsii-kernel-6vfxKt/node_modules/aws-cdk-lib/aws-elasticloadbalancingv2/lib/alb/application-listener.js:1:5178)",
+              "/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/tmpokzispfl/lib/program.js:8228:134",
+              "Kernel._wrapSandboxCode (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/tmpokzispfl/lib/program.js:8840:24)",
+              "/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/tmpokzispfl/lib/program.js:8228:107",
+              "Kernel._ensureSync (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/tmpokzispfl/lib/program.js:8821:28)",
+              "Kernel.invoke (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/tmpokzispfl/lib/program.js:8228:34)",
+              "KernelHost.processRequest (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/tmpokzispfl/lib/program.js:9761:36)",
+              "KernelHost.run (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/tmpokzispfl/lib/program.js:9724:22)",
+              "Immediate._onImmediate (/private/var/folders/sx/bfg2f_ld43l1ztft63_tqszr0000gn/T/tmpokzispfl/lib/program.js:9725:46)",
               "processImmediate (node:internal/timers:464:21)"
             ]
           }
@@ -276,6 +276,12 @@
           {
             "type": "aws:cdk:logicalId",
             "data": "myapplistenerruleFABDF610"
+          }
+        ],
+        "/SharedResources/app_record_set/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apprecordset1E03742F"
           }
         ],
         "/SharedResources/CDKMetadata/Default": [
